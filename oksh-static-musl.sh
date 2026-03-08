@@ -112,10 +112,10 @@ upx \
 perl && \
 tar xf oksh-${OKSH_VERSION}.tar.gz && \
 cd oksh-${OKSH_VERSION}/ && \
-./configure --cc=gcc --cflags="-Os -fomit-frame-pointer" --enable-curses --enable-lto --enable-static && \
+./configure --cc=gcc --cflags=\"-Os -fomit-frame-pointer\" --enable-curses --enable-lto --enable-static && \
 make -j\$(nproc) && \
 strip oksh && \
-upx --lzma oksh"
+upx --best oksh"
 mkdir -p dist
 cp "./pasta/oksh-${OKSH_VERSION}/oksh" "dist/oksh-${ARCH}"
 if command -v file >/dev/null 2>&1; then echo -e "${ORANGE} File Info:  $(file "dist/oksh-${ARCH}" | cut -d: -f2-)${NC}"; fi
